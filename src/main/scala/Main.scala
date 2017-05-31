@@ -7,7 +7,7 @@ import akka.cluster.ClusterEvent._
 object Main extends App {
   implicit val system = ActorSystem()
   system.actorOf(Props[ClusterListener])
-  sys.addShutdownHook(system.shutdown())
+  sys.addShutdownHook(system.terminate())
 }
 
 class ClusterListener extends Actor with ActorLogging {
